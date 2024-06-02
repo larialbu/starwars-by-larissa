@@ -1,0 +1,75 @@
+.nav {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .navBrand img {
+    width: 100px;
+  }
+  
+  .navLinks {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .navLinks li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .main {
+    padding: 40px;
+  }
+  
+  .planets {
+    padding: 40px;
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .planets h2 {
+    padding-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .planetGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .loadMore {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'StarJedi', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .loadMore:hover {
+    background-color: #FFC107;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .characterGrid,
+    .starshipGrid,
+    .planetGrid {
+      grid-template-columns: repeat(1, 1fr); 
+    }
+  }

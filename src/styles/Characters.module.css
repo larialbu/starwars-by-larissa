@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'StarJedi';
+    src: url('/fonts/Starjhol.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .nav {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    width: 200px;
+  }
+  
+  .navBrand img {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .navLinks {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .navLinks li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .main {
+    margin-left: 220px; /* Espaço para a sidebar */
+    padding: 40px;
+  }
+  
+  .characters {
+    padding: 40px;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  .characterGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .loadMore {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'StarJedi', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .loadMore:hover {
+    background-color: #FFC107;
+    transform: scale(1.05);
+  }
+
+  .starships {
+    padding: 40px;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  .starships h2 {
+    padding-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .starshipGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,42 @@
+.characterCard {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .characterCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .characterCard h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+  }
+  
+  .characterCard p {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
