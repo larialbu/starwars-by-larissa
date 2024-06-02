@@ -43,26 +43,6 @@ export default function Characters() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav className={styles.nav}>
-        <div className={styles.navBrand}>
-          <Image src="/logo.png" alt="Logo Star Wars" width={120} height={80} priority />
-        </div>
-        <ul className={styles.navLinks}>
-          <li>
-            <a href="/">Início</a>
-          </li>
-          <li>
-            <a href="/character">Personagens</a>
-          </li>
-          <li>
-            <a href="/starship">Naves</a>
-          </li>
-          <li>
-            <a href="/planet">Planetas</a>
-          </li>
-        </ul>
-      </nav>
-
       <main className={styles.main}>
         <section id="characters" className={styles.characters}>
           <h2>Personagens</h2>
