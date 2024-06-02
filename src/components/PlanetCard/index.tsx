@@ -1,22 +1,39 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/PlanetCard.module.css";
 
-export default function PlanetCard({ planet }) {
-  const [films, setFilms] = useState([]);
-  const [loading, setLoading] = useState(true);
+interface Planet {
+  films: string[];
+  name: string;
+  rotation_period: string;
+  orbital_period: string;
+  diameter: string;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: string;
+  population: string;
+}
+
+interface Props {
+  planet: Planet;
+}
+
+export default function PlanetCard({ planet }: Props) {
+  const [films, setFilms] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchFilms() {
-      const fetchTitle = async (url) => {
+      const fetchTitle = async (url: string) => {
         const response = await fetch(url);
         const data = await response.json();
         return data.title;
       };
 
       if (planet.films) {
-        const filmsList = await Promise.all(planet.films.map(fetchTitle));
+        const filmsList: string[] = await Promise.all(planet.films.map(fetchTitle));
         setFilms(filmsList);
-        setLoading(false); 
+        setLoading(false);
       }
     }
 
@@ -26,7 +43,7 @@ export default function PlanetCard({ planet }) {
   return (
     <div className={styles.planetCard}>
       {loading ? (
-        <div className={styles.spinner}></div> 
+        <div className={styles.spinner}></div>
       ) : (
         <>
           <h3>{planet.name}</h3>

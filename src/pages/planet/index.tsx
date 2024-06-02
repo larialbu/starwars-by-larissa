@@ -1,19 +1,30 @@
-// pages/planet.js
-
 import Image from "next/image";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import PlanetCard from "@/components/PlanetCard"; 
 import styles from "@/styles/Planets.module.css";
 
+interface Planet {
+  name: string;
+  rotation_period: string;
+  orbital_period: string;
+  diameter: string;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: string;
+  population: string;
+  films: string[];
+}
+
 export default function Planets() {
-  const [planets, setPlanets] = useState([]);
-  const [nextPage, setNextPage] = useState("https://swapi.dev/api/planets/");
+  const [planets, setPlanets] = useState<Planet[]>([]);
+  const [nextPage, setNextPage] = useState<string>("https://swapi.dev/api/planets/");
 
   const fetchPlanets = async () => {
     const response = await fetch(nextPage);
     const data = await response.json();
-    setPlanets((prevPlanets) => [...prevPlanets, ...data.results]);
+    setPlanets((prevPlanets: Planet[]) => [...prevPlanets, ...data.results]);
     setNextPage(data.next);
   };
 

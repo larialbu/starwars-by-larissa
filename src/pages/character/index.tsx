@@ -4,14 +4,30 @@ import { useEffect, useState } from "react";
 import CharacterCard from "@/components/CharacterCard";
 import styles from "@/styles/Characters.module.css";
 
+interface Character {
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+  homeworld: string;
+  films: string[];
+  species: string[];
+  vehicles: string[];
+  starships: string[];
+}
+
 export default function Characters() {
-  const [characters, setCharacters] = useState([]);
-  const [nextPage, setNextPage] = useState("https://swapi.dev/api/people/");
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [nextPage, setNextPage] = useState<string>("https://swapi.dev/api/people/");
 
   const fetchCharacters = async () => {
     const response = await fetch(nextPage);
     const data = await response.json();
-    setCharacters((prevCharacters) => [...prevCharacters, ...data.results]);
+    setCharacters((prevCharacters: Character[]) => [...prevCharacters, ...data.results]);
     setNextPage(data.next);
   };
 

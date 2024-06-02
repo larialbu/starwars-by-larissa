@@ -1,17 +1,37 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/CharacterCard.module.css";
 
-export default function CharacterCard({ character }) {
-  const [homeworld, setHomeworld] = useState("");
-  const [films, setFilms] = useState([]);
-  const [species, setSpecies] = useState([]);
-  const [vehicles, setVehicles] = useState([]);
-  const [starships, setStarships] = useState([]);
-  const [loading, setLoading] = useState(true);
+interface Character {
+  homeworld: string;
+  films: string[];
+  species: string[];
+  vehicles: string[];
+  starships: string[];
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+}
+
+interface Props {
+  character: Character;
+}
+
+export default function CharacterCard( { character }: Props ) {
+  const [homeworld, setHomeworld] = useState<string>(""); 
+  const [films, setFilms] = useState<string[]>([]); 
+  const [species, setSpecies] = useState<string[]>([]); 
+  const [vehicles, setVehicles] = useState<string[]>([]); 
+  const [starships, setStarships] = useState<string[]>([]); 
+  const [loading, setLoading] = useState<boolean>(true); 
 
   useEffect(() => {
     async function fetchDetails() {
-      const fetchName = async (url) => {
+      const fetchName = async (url: string) => { 
         const response = await fetch(url);
         const data = await response.json();
         return data.name || data.title;
@@ -23,22 +43,22 @@ export default function CharacterCard({ character }) {
       }
 
       if (character.films) {
-        const filmsList = await Promise.all(character.films.map(fetchName));
+        const filmsList: string[] = await Promise.all(character.films.map(fetchName)); 
         setFilms(filmsList);
       }
 
       if (character.species) {
-        const speciesList = await Promise.all(character.species.map(fetchName));
+        const speciesList: string[] = await Promise.all(character.species.map(fetchName)); 
         setSpecies(speciesList);
       }
 
       if (character.vehicles) {
-        const vehiclesList = await Promise.all(character.vehicles.map(fetchName));
+        const vehiclesList: string[] = await Promise.all(character.vehicles.map(fetchName)); 
         setVehicles(vehiclesList);
       }
 
       if (character.starships) {
-        const starshipsList = await Promise.all(character.starships.map(fetchName));
+        const starshipsList: string[] = await Promise.all(character.starships.map(fetchName)); // Definindo o tipo da lista de naves espaciais como array de strings
         setStarships(starshipsList);
       }
 

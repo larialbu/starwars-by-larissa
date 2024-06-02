@@ -1,22 +1,43 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/StarshipCard.module.css";
 
-export default function StarshipCard({ starship }) {
-  const [films, setFilms] = useState([]);
-  const [loading, setLoading] = useState(true); 
+interface Starship {
+  films: string[];
+  name: string;
+  model: string;
+  manufacturer: string;
+  starship_class: string;
+  length: string;
+  cost_in_credits: string;
+  max_atmosphering_speed: string;
+  crew: string;
+  passengers: string;
+  cargo_capacity: string;
+  consumables: string;
+  hyperdrive_rating: string;
+  MGLT: string;
+}
+
+interface Props {
+  starship: Starship;
+}
+
+export default function StarshipCard({ starship }: Props) {
+  const [films, setFilms] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchFilms() {
-      const fetchTitle = async (url) => {
+      const fetchTitle = async (url: string) => {
         const response = await fetch(url);
         const data = await response.json();
         return data.title;
       };
 
       if (starship.films) {
-        const filmsList = await Promise.all(starship.films.map(fetchTitle));
+        const filmsList: string[] = await Promise.all(starship.films.map(fetchTitle));
         setFilms(filmsList);
-        setLoading(false); 
+        setLoading(false);
       }
     }
 
@@ -26,7 +47,7 @@ export default function StarshipCard({ starship }) {
   if (loading) {
     return (
       <div className={styles.starshipCard}>
-        <div className={styles.spinner}></div> 
+        <div className={styles.spinner}></div>
       </div>
     );
   }
