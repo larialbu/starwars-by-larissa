@@ -111,9 +111,9 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.loadMoreContainer}>
-            <button className={styles.loadMore} onClick={handleViewMoreCharacters}>
+            {/* <button className={styles.loadMore} onClick={handleViewMoreCharacters}>
               Ver Mais
-            </button>
+            </button> */}
           </div>
         </section>
 
@@ -125,9 +125,9 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.loadMoreContainer}>
-            <button className={styles.loadMore} onClick={handleViewMoreStarships}>
+            {/* <button className={styles.loadMore} onClick={handleViewMoreStarships}>
               Ver Mais
-            </button>
+            </button> */}
           </div>
         </section>
 
@@ -139,9 +139,9 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.loadMoreContainer}>
-            <button className={styles.loadMore} onClick={handleViewMorePlanets}>
+            {/* <button className={styles.loadMore} onClick={handleViewMorePlanets}>
               Ver Mais
-            </button>
+            </button> */}
           </div>
         </section>
       </main>
